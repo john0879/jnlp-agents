@@ -1,2 +1,2 @@
-# jnlp-terragrunt
-Jenkins slave that extends jenkins/jnlp-agent-terraform and adds terragrunt.
+# jnlp-agents
+Jenkins build agents for .NET Core, react, and AWS deployment.
