@@ -2,7 +2,6 @@ FROM john0879/jnlp-aws-yarn
 
 USER root
 
-
 # Install .NET CLI dependencies
 RUN echo 'deb http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list
 RUN apt-get update \
@@ -27,6 +26,9 @@ RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$
 	&& tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
 	&& rm dotnet.tar.gz \
 	&& ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+
+# Trigger first run experience by running arbitrary cmd to populate local package cache
+RUN dotnet help
 
 USER jenkins
 
